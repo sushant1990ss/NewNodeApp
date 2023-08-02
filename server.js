@@ -1,21 +1,31 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const WebRoutes = require("./routes/web");
+const app = require("./app");
+const http = require("http");
+const server = http.createServer(app);
 
-let app = express();
-
-//config body-parser to post data
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-//config view engine
-// configViewEngine(app);
-
-//config web routes
-WebRoutes(app);
-
-let port = process.env.PORT || 3022;
-
-app.listen(port, () => {
-  console.log(`Messenger bot is running at the port ${port}`);
+const io = require("socket.io")(server, {
+  cors: { origin: "*" },
 });
+
+
+app.set('socketio', io);
+
+io.on("connection", (socket) => {
+  console.log("Connected!");
+  socket.emit("join", "Love Stereo Again");
+  // socket.on("random number", (arg) => {
+  //   console.log(arg);
+  // });
+  
+});
+
+// io.on("random number", (arg) => {
+//   console.log(arg);
+// });
+
+
+const port = process.env.PORT || 5053;
+server.listen(port, () => {
+  console.log(`server started on port: ${port}`);
+});
+const socketIoObject = io;
+module.exports.ioObject = socketIoObject;
