@@ -34,17 +34,18 @@ let postWebhookV2 = (req, res) => {
 let postWebhook = (req, res) => {
   let body = req.body;
 
-  if (body.object === "page") {
-    body.entry.forEach(function (entry) {
-      let webhook_event = entry.messaging[0];
-console.log(webhook_event);
-      res.status(200).send(webhook_event);
-    });
+//   if (body.object === "page") {
+//     body.entry.forEach(function (entry) {
+//       let webhook_event = entry.messaging[0];
+// console.log(webhook_event);
+//       res.status(200).send(webhook_event);
+//     });
 
-    console.log("EVENT_RECEIVED");
-  } else {
-    res.sendStatus(404);
-  }
+//     console.log("EVENT_RECEIVED");
+//   } else {
+//     res.sendStatus(404);
+//   }
+  return res.send("Hello rjksdsfsdfsfsfsdfasd");
 };
 function handleMessage(sender_psid, received_message) {
   let response;
