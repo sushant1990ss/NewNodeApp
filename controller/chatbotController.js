@@ -38,12 +38,12 @@ let postWebhook = (req, res) => {
     body.entry.forEach(function (entry) {
       let webhook_event = entry.messaging[0];
 console.log(webhook_event);
-      res.status(200).send(webhook_event);
+      // res.status(200).send(webhook_event);
     });
 
     console.log("EVENT_RECEIVED");
   } else {
-    res.sendStatus(404);
+    // res.sendStatus(404);
   }
   return res.send("Hello rjksdsfsdfsfsfsdfasd");
 };
