@@ -1,7 +1,7 @@
 const request = require("request");
 const dotenv = require("dotenv");
 let test = (req, res) => {
-  return res.send("Hello from facebook webhook");
+  return res.send("Hello");
 };
 
 const MY_VERIFY_TOKEN = "Itjustarandomstringtoverify1234sushantDanish";
