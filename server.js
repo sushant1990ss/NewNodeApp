@@ -24,7 +24,7 @@ io.on("connection", (socket) => {
 
 
 const port = process.env.PORT || 5053;
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`server started on port: ${port}`);
 });
 const socketIoObject = io;
