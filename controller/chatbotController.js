@@ -27,6 +27,7 @@ let getWebhook = (req, res) => {
   }
 };
 let postWebhookV2 = (req, res) => {
+  console.log(req.body);
   return res.send("Hello rjksdasd");
 };
 
