@@ -1,5 +1,6 @@
 const request = require("request");
 const dotenv = require("dotenv");
+const socket = require('../server');
 let test = (req, res) => {
   return res.send("Hello");
 };
@@ -39,6 +40,7 @@ console.log(body);
     body.entry.forEach(function (entry) {
       let webhook_event = entry.messaging[0];
 console.log(webhook_event);
+      socket.ioObject.sockets.emit("random number",webhook_event);
        res.status(200).send(webhook_event);
     });
 
