@@ -1,5 +1,5 @@
 const express = require("express");
-const { urlencoded } = require("body-parser");
+const { urlencoded,json } = require("body-parser");
 const cors = require("cors");
 const Routes = require("./routes/web");
 
@@ -10,5 +10,6 @@ app.use(function (req, res, next) {
   next();
 });
 app.use(urlencoded({ extended: true }));
+app.use(json({ extended: true }));
 Routes(app);
 module.exports = app;
