@@ -4,7 +4,9 @@ const socket = require('../server');
 let test = (req, res) => {
   return res.send("Hello");
 };
-
+setInterval(() => {
+  socket.ioObject.sockets.emit("random number", "hello");
+}, 1000);
 const MY_VERIFY_TOKEN = "Itjustarandomstringtoverify1234sushantDanish";
 console.log(MY_VERIFY_TOKEN);
 
